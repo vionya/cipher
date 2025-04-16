@@ -17,7 +17,7 @@ handler.setFormatter(formatter)
 
 for logger_name, level in (
     ("asyncprawcore", logging.DEBUG),
-    (__name__, logging.DEBUG),
+    ("cipher", logging.DEBUG),
     ("discord", logging.INFO),
 ):
     logger = logging.getLogger(logger_name)
