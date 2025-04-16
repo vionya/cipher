@@ -9,12 +9,12 @@ import asyncpraw
 from cache import TimedCache
 from timer import periodic
 from view import VerifyView
-from config import verifier
+from config import constants
 
 log = logging.getLogger("client")
 
 
-class MegathreadVerifierClient(discord.Client):
+class CipherClient(discord.Client):
     verification_cache: TimedCache
     reddit: asyncpraw.Reddit
     target_channel_id: int
@@ -90,11 +90,11 @@ class MegathreadVerifierClient(discord.Client):
                             cast(str, message.body),
                         )
                     )
-                    await message.reply(verifier["strings"]["REDDIT_PENDING"])
+                    await message.reply(constants["strings"]["REDDIT_PENDING"])
                 else:
-                    await message.reply(verifier["strings"]["REDDIT_NO_REQUEST"])
+                    await message.reply(constants["strings"]["REDDIT_NO_REQUEST"])
             else:
-                await message.reply(verifier["strings"]["REDDIT_BAD_SUBJECT"])
+                await message.reply(constants["strings"]["REDDIT_BAD_SUBJECT"])
             await message.mark_read()
         log.debug("finished fetching reddit inbox")
         return output
@@ -107,6 +107,6 @@ class MegathreadVerifierClient(discord.Client):
             and self.user.mentioned_in(message)
         ):
             await message.channel.send(
-                verifier["strings"]["DISCORD_ENTRYPOINT"],
+                constants["strings"]["DISCORD_ENTRYPOINT"],
                 view=VerifyView(self.verification_cache),
             )

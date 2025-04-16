@@ -18,7 +18,7 @@ class DiscordConfig(TypedDict):
     token: str
 
 
-class VerifierConfig(TypedDict):
+class ConstantsConfig(TypedDict):
     kwargs: KwargsConfig
     strings: dict[str, str]
 
@@ -32,4 +32,4 @@ _data = json.load(open("config.json"))
 
 reddit = RedditConfig(_data["reddit"])
 discord = DiscordConfig(_data["discord"])
-verifier = VerifierConfig(_data["verifier"])
+constants = ConstantsConfig(_data["verifier"])

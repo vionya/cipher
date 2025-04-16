@@ -5,8 +5,8 @@ import logging
 
 import asyncpraw
 
-from client import MegathreadVerifierClient
-from config import reddit, discord, verifier
+from client import CipherClient
+from config import reddit, discord, constants
 from formatter import CustomLoggingFormatter
 
 formatter = CustomLoggingFormatter(
@@ -28,7 +28,7 @@ for logger_name, level in (
 async def main():
     r = asyncpraw.Reddit(**reddit)
 
-    client = MegathreadVerifierClient(r, **verifier["kwargs"])
+    client = CipherClient(r, **constants["kwargs"])
     await client.start(discord["token"])
 
 

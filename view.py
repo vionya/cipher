@@ -5,7 +5,7 @@ import logging
 import discord
 
 from cache import TimedCache
-from config import verifier
+from config import constants
 
 
 log = logging.getLogger("client")
@@ -26,8 +26,8 @@ class StartVerification(discord.ui.Modal, title="Begin Verifying"):
         log.info(f"began verifying @{interaction.user} <-> u/{name}")
         embed = discord.Embed(
             title="Verification Initialized",
-            description=verifier["strings"]["DISCORD_REDDIT_GUIDE"],
-            color=discord.Color.blurple()
+            description=constants["strings"]["DISCORD_REDDIT_GUIDE"],
+            color=discord.Color.blurple(),
         ).set_footer(
             text="Verification requests will time out after 10 minutes of inactivity"
         )
