@@ -6,12 +6,12 @@ from typing import cast
 import discord
 import asyncpraw
 
-from cache import TimedCache
-from timer import periodic
-from view import VerifyView
-from config import constants
+from cipher.utils.cache import TimedCache
+from cipher.utils.timer import periodic
+from cipher.objects.views import VerifyView
+from cipher.config import constants
 
-log = logging.getLogger("client")
+log = logging.getLogger(__name__)
 
 
 class CipherClient(discord.Client):

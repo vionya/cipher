@@ -5,9 +5,9 @@ import logging
 
 import asyncpraw
 
-from client import CipherClient
-from config import reddit, discord, constants
-from formatter import CustomLoggingFormatter
+from cipher import CipherClient
+from cipher.config import reddit, discord, constants
+from cipher.utils.formatter import CustomLoggingFormatter
 
 formatter = CustomLoggingFormatter(
     fmt="[{asctime}] [{levelname} {name} {funcName}] {message}"
@@ -17,7 +17,7 @@ handler.setFormatter(formatter)
 
 for logger_name, level in (
     ("asyncprawcore", logging.DEBUG),
-    ("client", logging.DEBUG),
+    (__name__, logging.DEBUG),
     ("discord", logging.INFO),
 ):
     logger = logging.getLogger(logger_name)

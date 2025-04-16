@@ -4,8 +4,8 @@ import logging
 
 import discord
 
-from cache import TimedCache
-from config import constants
+from cipher.utils.cache import TimedCache
+from cipher.config import constants
 
 
 log = logging.getLogger("client")
