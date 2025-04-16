@@ -32,4 +32,4 @@ _data = json.load(open("config.json"))
 
 reddit = RedditConfig(_data["reddit"])
 discord = DiscordConfig(_data["discord"])
-constants = ConstantsConfig(_data["verifier"])
+constants = ConstantsConfig(_data["constants"])
