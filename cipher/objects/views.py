@@ -8,7 +8,7 @@ from cipher.utils.cache import TimedCache
 from cipher.config import constants
 
 
-log = logging.getLogger("client")
+log = logging.getLogger(__name__)
 
 
 class StartVerification(discord.ui.Modal, title="Begin Verifying"):
