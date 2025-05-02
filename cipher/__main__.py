@@ -16,8 +16,8 @@ handler = logging.StreamHandler()
 handler.setFormatter(formatter)
 
 for logger_name, level in (
-    ("asyncprawcore", logging.DEBUG),
-    ("cipher", logging.DEBUG),
+    ("asyncprawcore", logging.INFO),
+    ("cipher", logging.INFO),
     ("discord", logging.INFO),
 ):
     logger = logging.getLogger(logger_name)
