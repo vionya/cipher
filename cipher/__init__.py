@@ -22,7 +22,7 @@ class CipherClient(commands.Bot):
     ):
         kwargs["intents"] = discord.Intents.default()
         kwargs["help_command"] = None
-        kwargs["command_prefix"] = settings["prefix"]
+        kwargs["command_prefix"] = commands.when_mentioned
         kwargs["allowed_mentions"] = discord.AllowedMentions.none()
 
         super().__init__(**kwargs)
