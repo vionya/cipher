@@ -18,12 +18,14 @@ class DiscordConfig(TypedDict):
     token: str
 
 
+class SettingsConfig(TypedDict):
+    do_verification: bool
+    load_order: list[str]
+    prefix: str
+
+
 class ConstantsConfig(TypedDict):
-    kwargs: KwargsConfig
     strings: dict[str, str]
-
-
-class KwargsConfig(TypedDict):
     target_channel_id: int
     target_message_id: int
 
@@ -32,4 +34,5 @@ _data = json.load(open("config.json"))
 
 reddit = RedditConfig(_data["reddit"])
 discord = DiscordConfig(_data["discord"])
+settings = SettingsConfig(_data["settings"])
 constants = ConstantsConfig(_data["constants"])

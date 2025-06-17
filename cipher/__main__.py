@@ -2,12 +2,16 @@
 # Copyright (C) 2025 vionya
 import asyncio
 import logging
+import os
 
 import asyncpraw
 
 from cipher import CipherClient
-from cipher.config import reddit, discord, constants
+from cipher.config import discord, reddit
 from cipher.utils.formatter import CustomLoggingFormatter
+
+if os.name == "nt":
+    os.system("color")
 
 formatter = CustomLoggingFormatter(
     fmt="[{asctime}] [{levelname} {name} {funcName}] {message}"
@@ -26,9 +30,9 @@ for logger_name, level in (
 
 
 async def main():
-    r = asyncpraw.Reddit(**reddit)
+    r = asyncpraw.Reddit(**reddit)  # type: ignore
 
-    client = CipherClient(r, **constants["kwargs"])
+    client = CipherClient(r)
     await client.start(discord["token"])
 
 
